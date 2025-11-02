@@ -1,4 +1,4 @@
-import { Client, Project, Payment } from "./types";
+import type { Client, Project, Payment } from "./types";
 
 // ==============================================
 // 1. COUNT PAID VS UNPAID PROJECTS

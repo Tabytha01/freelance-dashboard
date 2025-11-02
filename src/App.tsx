@@ -1,13 +1,12 @@
-import {useState } from 'react';
-import { FreelanceProvider } from './context/FreelanceContext';
+import { useState } from 'react';
+import type { Client } from './types';
+import { FreelanceProvider, useFreelance } from './context/FreelanceContext';
 import { DashboardStats } from './components/DashboardStarts';
 import { ClientCard } from './context/ClientCard';
 import { ProjectList } from './components/ProjectList';
 import { searchClients, searchProjects, filterProjectsByPayment } from './utils';
 
- ==============================================
 // MAIN DASHBOARD COMPONENT
-// ==============================================
 const Dashboard = () => {
   const { state } = useFreelance();
   
@@ -16,7 +15,7 @@ const Dashboard = () => {
   const [projectSearch, setProjectSearch] = useState("");
   const [paymentFilter, setPaymentFilter] = useState<"all" | "paid" | "unpaid">("all");
 
-  / Apply search and filters
+  // Apply search and filters
   const filteredClients = clientSearch
     ? searchClients(state.clients, clientSearch)
     : state.clients;
@@ -56,7 +55,7 @@ const Dashboard = () => {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredClients.map((client) => (
+            {filteredClients.map((client: Client) => (
               <ClientCard key={client.id} client={client} />
             ))}
           </div>
@@ -70,7 +69,7 @@ const Dashboard = () => {
         {/* Projects Section */}
         <section>
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
-            <h2 className="text-3xl font-bold text-gray-800">📂 Projects</h2>
+            <h2 className="text-3xl font-bold text-gray-800"> Projects</h2>
             
             <div className="flex gap-4 flex-wrap">
               {/* Payment Filter */}
@@ -103,7 +102,7 @@ const Dashboard = () => {
       <footer className="bg-gray-800 text-white py-6 mt-12">
         <div className="container mx-auto px-6 text-center">
           <p className="text-lg">
-            Built with React, TypeScript, and Tailwind CSS ⚡
+            Built with React, TypeScript, and Tailwind CSS | &copy; 2024 Freelance Dashboard
           </p>
         </div>
       </footer>

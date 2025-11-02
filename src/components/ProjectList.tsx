@@ -1,6 +1,7 @@
-import { Project } from "../types";
+import type { Project } from "../types";
 import { useFreelance } from "../context/FreelanceContext";
 import { findClientById, getStatusColor, getPaymentColor, formatCurrency } from "../utils";
+import "../styles/ProjectList.css";
 
 // ==============================================
 // TYPED PROPS
@@ -25,63 +26,49 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
 
   if (projects.length === 0) {
     return (
-      <div className="text-center py-12 bg-gray-50 rounded-xl border-2 border-dashed border-gray-300">
-        <p className="text-gray-500 text-lg">No projects found</p>
+      <div className="project-list-empty">
+        <p className="project-list-empty-text">No projects found</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-4">
+    <div className="project-list">
       {projects.map((project) => {
         // Type-safe client lookup with type narrowing
         const client = findClientById(state.clients, project.clientId);
 
         return (
-          <div
-            key={project.id}
-            className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300"
-          >
+          <div key={project.id} className="project-card">
             {/* Project Header */}
-            <div className="flex justify-between items-start mb-4">
+            <div className="project-header">
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-1">
-                  {project.title}
-                </h3>
+                <h3 className="project-title">{project.title}</h3>
                 {/* Demonstrating type narrowing - handle missing client */}
                 {client ? (
-                  <p className="text-gray-600">
-                    👤 Client: <span className="font-semibold">{client.name}</span>
+                  <p className="project-client">
+                    👤 Client: <span>{client.name}</span>
                   </p>
                 ) : (
-                  <p className="text-red-500 italic">Client not found</p>
+                  <p className="project-client-error">Client not found</p>
                 )}
               </div>
 
               {/* Budget */}
-              <div className="text-right">
-                <p className="text-sm text-gray-500">Budget</p>
-                <p className="text-2xl font-bold text-green-600">
+              <div className="project-budget">
+                <p className="project-budget-label">Budget</p>
+                <p className="project-budget-amount">
                   {formatCurrency(project.budget)}
                 </p>
               </div>
             </div>
 
-            {/* Status Badges with Conditional Styling */}
-            <div className="flex gap-3 mb-4">
-              <span
-                className={`px-4 py-2 rounded-full text-sm font-semibold border-2 ${getStatusColor(
-                  project.status
-                )}`}
-              >
+            {/* Status Badges */}
+            <div className="project-badges">
+              <span className={`status-badge ${getStatusColor(project.status)}`}>
                 📊 {project.status.replace("-", " ").toUpperCase()}
               </span>
-              <span
-                className={`px-4 py-2 rounded-full text-sm font-semibold border-2 ${getPaymentColor(
-                  project.paymentStatus
-                )}`}
-              >
-                {project.paymentStatus === "paid" ? }{" "}
+              <span className={`status-badge ${getPaymentColor(project.paymentStatus)}`}>
                 {project.paymentStatus.toUpperCase()}
               </span>
             </div>
@@ -90,15 +77,15 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
             {project.paymentStatus === "unpaid" && (
               <button
                 onClick={() => handleMarkPaid(project.id)}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-6 rounded-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-md"
+                className="mark-paid-button"
               >
-                 Mark as Paid
+                Mark as Paid
               </button>
             )}
 
             {/* Project ID */}
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <span className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded">
+            <div className="project-footer">
+              <span className="project-id">
                 Project ID: {project.id}
               </span>
             </div>

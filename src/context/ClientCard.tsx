@@ -1,4 +1,5 @@
-import { Client } from "../types";
+import type { Client } from "../types";
+import "../styles/ClientCard.css";
 
 // ==============================================
 // TYPED PROPS
@@ -12,41 +13,33 @@ interface ClientCardProps {
 // ==============================================
 export const ClientCard = ({ client }: ClientCardProps) => {
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-5 hover:shadow-lg transition-all duration-300 hover:scale-105">
+    <div className="client-card">
       {/* Client Name */}
-      <h3 className="text-xl font-bold text-purple-900 mb-2">
-        {client.name}
-      </h3>
+      <h3 className="client-name">{client.name}</h3>
 
       {/* Country with emoji */}
-      <div className="flex items-center gap-2 text-gray-700 mb-2">
-        <span className="text-lg">Country</span>
-        <span className="font-medium">{client.country}</span>
+      <div className="client-info">
+        <span className="client-info-label">Country</span>
+        <span className="client-info-value">{client.country}</span>
       </div>
 
       {/* Email - Demonstrating type narrowing with optional property */}
       {client.email ? (
-        <div className="flex items-center gap-2 text-gray-600">
-          <span className="text-lg">Email</span>
-          <a
-            href={`mailto:${client.email}`}
-            className="text-blue-600 hover:underline text-sm"
-          >
+        <div className="client-email">
+          <span className="client-info-label">Email</span>
+          <a href={`mailto:${client.email}`} className="client-email-link">
             {client.email}
           </a>
         </div>
       ) : (
-        <div className="flex items-center gap-2 text-gray-400 italic text-sm">
-          
+        <div className="client-email-missing">
           <span>No email provided</span>
         </div>
       )}
 
       {/* Client ID badge */}
-      <div className="mt-3 pt-3 border-t border-purple-200">
-        <span className="text-xs font-mono text-purple-600 bg-purple-100 px-2 py-1 rounded">
-          ID: {client.id}
-        </span>
+      <div className="client-footer">
+        <span className="client-id">ID: {client.id}</span>
       </div>
     </div>
   );

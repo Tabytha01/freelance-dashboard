@@ -1,5 +1,6 @@
-import { createContext, useContext, useReducer, ReactNode} from "react";
-import { AppState, AppAction } from "../types";
+import { createContext, useContext, useReducer } from "react";
+import type { ReactNode } from "react";
+import type { AppState, AppAction } from "../types";
 import { initialClients, initialProjects, initialPayments } from "../data";
 // ==============================================
 // INITIAL STATE
@@ -15,7 +16,7 @@ const initialState: AppState = {
 // REDUCER FUNCTION
 // ==============================================
 // This handles all state updates based on action types
-const freeLanceReducer = (state: AppState, action: AppAction): AppState => {
+const freelanceReducer = (state: AppState, action: AppAction): AppState => {
     switch (action.type) {
         case "ADD_CLIENT":
             return {
@@ -25,21 +26,20 @@ const freeLanceReducer = (state: AppState, action: AppAction): AppState => {
             case "ADD_PROJECT":
                 return {
                     ...state,
-                    projects: [...state.projects, action.payload],
-                },
+                    projects: [...state.projects, action.payload]
+                };
             case "ADD_PAYMENT":
                 return {
                     ...state,
-                    payments: [...state.payments, action.payload],
-                },
-                case "MARK_PROJECT_PAID":
-    
+                    payments: [...state.payments, action.payload]
+                };
+            case "MARK_PROJECT_PAID":
                 return {
                     ...state,
                     projects: state.projects.map((project) =>
                         project.id === action.payload.projectId
                             ? { ...project, paymentStatus: "paid" }
-                            : project ),
+                            : project )
                 };
                 case "UPDATE_PROJECT_STATUS":
 return {
@@ -53,7 +53,7 @@ case "DELETE_PROJECT":
     return {
         ...state,
         projects: state.projects.filter(
-            (project) => project.id !== action.payload
+            (project) => project.id !== action.payload.projectId
         ),
 
     };
@@ -74,7 +74,7 @@ interface FreelanceContextProps {
 // ==============================================
 // CREATE CONTEXT
 // ==============================================
-const FreelanceContext = createContext<FreelanceContextType | undefined>(
+const FreelanceContext = createContext<FreelanceContextProps | undefined>(
   undefined
 );
 
@@ -96,14 +96,14 @@ export const FreelanceProvider = ({ children }: FreelanceProviderProps) => {
     </FreelanceContext.Provider>
   );
 };
+
 // ==============================================
 // CUSTOM HOOK
 // ==============================================
-// This hook makes it easy to use the context in components
 export const useFreelance = () => {
   const context = useContext(FreelanceContext);
   if (!context) {
-    throw new Error("useFreelance must be used within FreelanceProvider");
+    throw new Error("useFreelance must be used within a FreelanceProvider");
   }
   return context;
 };
