@@ -32,7 +32,7 @@ const Dashboard = () => {
       {/* Header */}
       <header className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white py-8 shadow-2xl">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-black mb-2">💼 Freelance Dashboard</h1>
+          <h1 className="text-5xl font-black mb-2">Freelance Dashboard</h1>
           <p className="text-xl opacity-90">
             Manage clients, projects, and payments with TypeScript
           </p>
@@ -45,7 +45,7 @@ const Dashboard = () => {
          {/* Clients Section */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-800">👥 Clients</h2>
+            <h2 className="text-3xl font-bold text-gray-800">Clients</h2>
             <input
               type="text"
               placeholder="Search clients..."
