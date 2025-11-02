@@ -42,13 +42,13 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
             {/* Project Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-1">
+                <h3 className="text-xl md:text-2xl font-bold text-brand-dark mb-1">
                   {project.title}
                 </h3>
                 {/* Demonstrating type narrowing - handle missing client */}
                 {client ? (
-                  <p className="text-gray-600">
-                    Client: <span className="font-semibold">{client.name}</span>
+                  <p className="text-brand-mid">
+                    Client: <span className="font-semibold text-brand-dark">{client.name}</span>
                   </p>
                 ) : (
                   <p className="text-red-500 italic">Client not found</p>
@@ -57,8 +57,8 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
 
               {/* Budget */}
               <div className="text-right">
-                <p className="text-sm text-gray-500">Budget</p>
-                <p className="text-xl md:text-2xl font-bold text-green-600">
+                <p className="text-sm text-brand-mid">Budget</p>
+                <p className="text-xl md:text-2xl font-bold text-brand-accent">
                   {formatCurrency(project.budget)}
                 </p>
               </div>
@@ -69,10 +69,10 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
               <span
                 className={`px-4 py-2 rounded-full text-sm font-semibold ${
                   project.status === "pending"
-                    ? "bg-amber-100 text-amber-600 border-2 border-amber-400"
+                    ? "bg-brand-mid/10 text-brand-mid border-2 border-brand-mid"
                     : project.status === "in-progress"
-                    ? "bg-blue-100 text-blue-600 border-2 border-blue-400"
-                    : "bg-green-100 text-green-600 border-2 border-green-400"
+                    ? "bg-brand-accent/10 text-brand-accent border-2 border-brand-accent"
+                    : "bg-brand-accent/10 text-brand-accent border-2 border-brand-accent"
                 }`}
               >
                 {project.status.replace("-", " ").toUpperCase()}
@@ -80,8 +80,8 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
               <span
                 className={`px-4 py-2 rounded-full text-sm font-semibold ${
                   project.paymentStatus === "paid"
-                    ? "bg-green-100 text-green-600 border-2 border-green-400"
-                    : "bg-red-100 text-red-600 border-2 border-red-400"
+                    ? "bg-brand-mid/10 text-brand-mid border-2 border-brand-mid"
+                    : "bg-brand-accent/10 text-brand-accent border-2 border-brand-accent"
                 }`}
               >
                 {project.paymentStatus.toUpperCase()}
@@ -92,7 +92,7 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
             {project.paymentStatus === "unpaid" && (
               <button
                 onClick={() => handleMarkPaid(project.id)}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-2 md:py-3 px-6 rounded-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-md"
+                className="w-full bg-gradient-to-r from-brand-mid to-brand-dark text-white font-bold py-2 md:py-3 px-6 rounded-lg hover:from-brand-dark hover:to-brand-mid transition-all duration-300 transform hover:scale-105 shadow-md"
               >
                 Mark as Paid
               </button>
@@ -100,7 +100,7 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
 
             {/* Project ID */}
             <div className="mt-4 pt-4 border-t border-gray-200">
-              <span className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded">
+              <span className="text-xs font-mono text-brand-mid bg-brand-mid/5 px-2 py-1 rounded">
                 Project ID: {project.id}
               </span>
             </div>

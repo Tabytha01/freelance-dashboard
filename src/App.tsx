@@ -28,9 +28,9 @@ const Dashboard = () => {
     filteredProjects = filterProjectsByPayment(filteredProjects, paymentFilter);
   }
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-brand-mid/10 via-brand-dark/10 to-brand-accent/5">
       {/* Header */}
-      <header className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white py-8 shadow-2xl">
+      <header className="bg-gradient-to-r from-brand-dark to-brand-mid text-white py-8 shadow-2xl">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl font-black mb-2">Freelance Dashboard</h1>
           <p className="text-xl opacity-90">
@@ -45,13 +45,13 @@ const Dashboard = () => {
          {/* Clients Section */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold text-gray-800">Clients</h2>
+            <h2 className="text-3xl font-bold text-brand-dark">Clients</h2>
             <input
               type="text"
               placeholder="Search clients..."
               value={clientSearch}
               onChange={(e) => setClientSearch(e.target.value)}
-              className="px-4 py-2 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 w-64"
+              className="px-4 py-2 border-2 border-brand-mid rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent w-64"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,14 +69,14 @@ const Dashboard = () => {
         {/* Projects Section */}
         <section>
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4">
-            <h2 className="text-3xl font-bold text-gray-800"> Projects</h2>
+            <h2 className="text-3xl font-bold text-brand-dark"> Projects</h2>
             
             <div className="flex gap-4 flex-wrap">
               {/* Payment Filter */}
               <select
                 value={paymentFilter}
                 onChange={(e) => setPaymentFilter(e.target.value as "all" | "paid" | "unpaid")}
-                className="px-4 py-2 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white"
+                className="px-4 py-2 border-2 border-brand-mid rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent bg-white"
               >
                 <option value="all">All Projects</option>
                 <option value="paid">Paid Only</option>
@@ -89,7 +89,7 @@ const Dashboard = () => {
                 placeholder="Search projects..."
                 value={projectSearch}
                 onChange={(e) => setProjectSearch(e.target.value)}
-                className="px-4 py-2 border-2 border-purple-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 w-64"
+                className="px-4 py-2 border-2 border-brand-mid rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-accent w-64"
               />
             </div>
           </div>
@@ -99,10 +99,10 @@ const Dashboard = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6 mt-12">
+      <footer className="bg-brand-dark text-white py-6 mt-12">
         <div className="container mx-auto px-6 text-center">
           <p className="text-lg">
-            Built with React, TypeScript, and Tailwind CSS | &copy; 2024 Freelance Dashboard
+           &copy; 2025 Freelance Dashboard
           </p>
         </div>
       </footer>

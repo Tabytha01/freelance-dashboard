@@ -16,7 +16,7 @@ export const DashboardStats = () => {
         title="Total Clients"
         value={stats.totalClients}
         icon=""
-        gradient="from-blue-500 to-cyan-500"
+        gradient="from-brand-accent to-brand-accent"
       />
 
       {/* Total Projects */}
@@ -24,7 +24,7 @@ export const DashboardStats = () => {
         title="Total Projects"
         value={stats.totalProjects}
         icon=""
-        gradient="from-purple-500 to-pink-500"
+        gradient="from-brand-accent to-brand-accent"
       />
 
       {/* Paid Projects */}
@@ -32,7 +32,7 @@ export const DashboardStats = () => {
         title="Paid Projects"
         value={stats.paidProjects}
         icon=""
-        gradient="from-green-500 to-emerald-500"
+        gradient="from-brand-accent to-brand-accent"
       />
 
       {/* Unpaid Projects */}
@@ -40,12 +40,12 @@ export const DashboardStats = () => {
         title="Unpaid Projects"
         value={stats.unpaidProjects}
     icon=""
-        gradient="from-orange-500 to-red-500"
+        gradient="from-brand-accent to-brand-accent"
       />
 
       {/* Total Revenue - Spanning full width */}
       <div className="lg:col-span-4">
-        <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 rounded-2xl p-6 md:p-8 text-white shadow-2xl">
+  <div className="bg-brand-accent rounded-2xl p-6 md:p-8 text-black shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p className="text-lg font-medium opacity-90 mb-2">
