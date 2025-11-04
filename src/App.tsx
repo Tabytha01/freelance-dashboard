@@ -34,7 +34,7 @@ const Dashboard = () => {
         <div className="container mx-auto px-6">
           <h1 className="text-5xl font-black mb-2">Freelance Dashboard</h1>
           <p className="text-xl font-bold">
-            Manage clients, projects, and payments with TypeScript
+            Manage clients, projects, and payments.
           </p>
         </div>
       </header>

@@ -120,7 +120,7 @@ export const calculateStats = (
 export const getStatusColor = (status: Project["status"]): string => {
   switch (status) {
     case "pending":
-      return "bg-yellow-100 text-yellow-800 border-yellow-300";
+      return "bg-yellow-100 text-yellow-800 border-yellow-500";
     case "in-progress":
       return "bg-blue-100 text-blue-800 border-blue-300";
     case "completed":

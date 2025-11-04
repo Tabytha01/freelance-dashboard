@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+## Freelance Dashboard (React + TypeScript)
+A comprehensive dashboard for managing freelance clients, projects, and payments with full TypeScript type safety.
+## Technologies Used
+- React 18 - UI framework
+- TypeScript - Type safety and better developer experience
+- Context API + useReducer - Global state management
+- Tailwind CSS - Utility-first styling
+- Vite - Fast build tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Main Features
+Type Safety
 
-Currently, two official plugins are available:
+ - Fully typed interfaces for Clients, Projects, and Payments
+ - Discriminated union types for reducer actions
+ - Type narrowing for safe data access
+ - Optional property handling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+State Management
 
-## React Compiler
+- Context API with useReducer pattern
+- Type-safe dispatch actions
+- Centralized state management
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Functionality
 
-## Expanding the ESLint configuration
+- View all clients with their details
+- Manage projects with status tracking
+- Mark projects as paid/unpaid
+- Search clients and projects by name
+- Filter projects by payment status
+- Real-time statistics dashboard
+- Conditional styling based on status
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Components
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- ClientCard - Displays client information with optional email handling
+- ProjectList - Lists projects with payment actions
+- DashboardStats - Shows aggregated statistics
+- All components use typed props and handle edge cases safely
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## freelance-dashboard/
+- ├── src/
+- │   ├── components/
+- │   │   ├── ClientCard.tsx       # Client display component
+- │   │   ├── ProjectList.tsx      # Project list with actions
+- │   │   └── DashboardStats.tsx   # Statistics dashboard
+- │   ├── context/
+- │   │   └── FreelanceContext.tsx # State management
+- │   ├── types.ts                 # TypeScript interfaces
+- │   ├── data.ts                  # Sample data
+- │   ├── utils.ts                 # Utility functions
+- │   ├── App.tsx                  # Main application
+- │   ├── main.tsx                 # Entry point
+- │   └── index.css                # Global styles
+- ├── public/
+- ├── package.json
+- ├── tsconfig.json
+- ├── tailwind.config.js
+- └── README.md
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Screenshot
+![alt text](image.png)

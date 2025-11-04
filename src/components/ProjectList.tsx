@@ -58,7 +58,7 @@ export const ProjectList = ({ projects }: ProjectListProps) => {
               {/* Budget */}
               <div className="text-right">
                 <p className="text-sm text-brand-mid">Budget</p>
-                <p className="text-xl md:text-2xl font-bold text-brand-accent">
+                <p className="text-xl md:text-2xl font-bold text-brand-dark">
                   {formatCurrency(project.budget)}
                 </p>
               </div>
