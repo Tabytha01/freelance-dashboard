@@ -10,13 +10,13 @@ export const DashboardStats = () => {
   const stats = calculateStats(state.clients, state.projects, state.payments);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div className="grid grid-cols-1 text-black sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 ">
       {/* Total Clients */}
       <StatCard
         title="Total Clients"
         value={stats.totalClients}
         icon=""
-        gradient="from-brand-accent to-brand-accent"
+        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Total Projects */}
@@ -24,7 +24,7 @@ export const DashboardStats = () => {
         title="Total Projects"
         value={stats.totalProjects}
         icon=""
-        gradient="from-brand-accent to-brand-accent"
+        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Paid Projects */}
@@ -32,7 +32,7 @@ export const DashboardStats = () => {
         title="Paid Projects"
         value={stats.paidProjects}
         icon=""
-        gradient="from-brand-accent to-brand-accent"
+        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Unpaid Projects */}
@@ -40,15 +40,15 @@ export const DashboardStats = () => {
         title="Unpaid Projects"
         value={stats.unpaidProjects}
     icon=""
-        gradient="from-brand-accent to-brand-accent"
+        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Total Revenue - Spanning full width */}
       <div className="lg:col-span-4">
-  <div className="bg-brand-accent rounded-2xl p-6 md:p-8 text-black shadow-2xl">
+        <div className="bg-brand-neutral rounded-2xl p-6 md:p-8 text-black shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <p className="text-lg font-medium opacity-90 mb-2">
+              <p className="text-lg font-medium mb-2">
                 Total Revenue
               </p>
               <p className="text-4xl md:text-5xl font-black">
@@ -56,7 +56,7 @@ export const DashboardStats = () => {
               </p>
             </div>
             <div className="text-left md:text-right">
-              <p className="text-sm opacity-90 mb-2">Project Status</p>
+              <p className="text-sm font-medium mb-2">Project Status</p>
               <div className="space-y-1 text-sm">
                 <div>
                   Pending: <span className="font-bold">{stats.projectsByStatus.pending}</span>
@@ -89,12 +89,12 @@ interface StatCardProps {
 
 const StatCard = ({ title, value, icon, gradient }: StatCardProps) => {
   return (
-    <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-6 text-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}>
+    <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-6 text-black shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-4xl">{icon}</span>
         <span className="text-4xl md:text-5xl font-black">{value}</span>
       </div>
-      <p className="text-lg font-semibold opacity-90">{title}</p>
+      <p className="text-lg font-semibold">{title}</p>
     </div>
   );
 };

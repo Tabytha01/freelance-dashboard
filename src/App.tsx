@@ -33,7 +33,7 @@ const Dashboard = () => {
       <header className="bg-gradient-to-r from-brand-dark to-brand-mid text-white py-8 shadow-2xl">
         <div className="container mx-auto px-6">
           <h1 className="text-5xl font-black mb-2">Freelance Dashboard</h1>
-          <p className="text-xl opacity-90">
+          <p className="text-xl font-bold">
             Manage clients, projects, and payments with TypeScript
           </p>
         </div>
@@ -101,8 +101,8 @@ const Dashboard = () => {
       {/* Footer */}
       <footer className="bg-brand-dark text-white py-6 mt-12">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-lg">
-           &copy; 2025 Freelance Dashboard
+          <p className="text-lg font-bold">
+            Built with React, TypeScript, and Tailwind CSS | &copy; 2024 Freelance Dashboard
           </p>
         </div>
       </footer>

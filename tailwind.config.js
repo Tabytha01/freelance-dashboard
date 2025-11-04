@@ -8,7 +8,7 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
+          50: '#010f18ff',
           100: '#e0f2fe',
           200: '#bae6fd',
           300: '#7dd3fc',
@@ -21,9 +21,11 @@ export default {
         },
         // Custom brand colors requested by user
         // NOTE: User provided `#foc38e` which contains an "o"; assuming it's a typo and using `#f0c38e`.
+        'brand-neutral': '#292827ff',
+    'brand-navy': '#000814',
         'brand-dark': '#312c51',
         'brand-mid': '#48426d',
-        'brand-accent': '#f0c38e',
+        'brand-accent': '#131212ff',
       },
     },
   },
