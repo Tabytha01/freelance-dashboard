@@ -102,7 +102,7 @@ const Dashboard = () => {
       <footer className="bg-brand-dark text-white py-6 mt-12">
         <div className="container mx-auto px-6 text-center">
           <p className="text-lg font-bold">
-            Built with React, TypeScript, and Tailwind CSS | &copy; 2024 Freelance Dashboard
+            &copy; 2024 Freelance Dashboard
           </p>
         </div>
       </footer>

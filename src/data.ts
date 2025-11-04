@@ -7,7 +7,7 @@ export const initialClients: Client[] = [
   {
     id: "c1",
     name: "Sarah Johnson",
-    country: "United States",
+    country: "Rwanda",
     email: "sarah.j@techcorp.com",
   },
   {

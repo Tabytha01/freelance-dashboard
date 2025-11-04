@@ -16,7 +16,6 @@ export const DashboardStats = () => {
         title="Total Clients"
         value={stats.totalClients}
         icon=""
-        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Total Projects */}
@@ -24,7 +23,6 @@ export const DashboardStats = () => {
         title="Total Projects"
         value={stats.totalProjects}
         icon=""
-        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Paid Projects */}
@@ -32,23 +30,21 @@ export const DashboardStats = () => {
         title="Paid Projects"
         value={stats.paidProjects}
         icon=""
-        gradient="from-brand-neutral to-brand-neutral"
       />
 
       {/* Unpaid Projects */}
       <StatCard
         title="Unpaid Projects"
         value={stats.unpaidProjects}
-    icon=""
-        gradient="from-brand-neutral to-brand-neutral"
+        icon=""
       />
 
       {/* Total Revenue - Spanning full width */}
       <div className="lg:col-span-4">
-        <div className="bg-brand-neutral rounded-2xl p-6 md:p-8 text-black shadow-2xl">
+        <div className="bg-[#F6FAFD] rounded-2xl p-6 md:p-8 text-brand-dark shadow-2xl">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
-              <p className="text-lg font-medium mb-2">
+              <p className="text-lg font-medium mb-2 text-brand-mid">
                 Total Revenue
               </p>
               <p className="text-4xl md:text-5xl font-black">
@@ -84,17 +80,16 @@ interface StatCardProps {
   title: string;
   value: number;
   icon: string;
-  gradient: string;
 }
 
-const StatCard = ({ title, value, icon, gradient }: StatCardProps) => {
+const StatCard = ({ title, value, icon }: StatCardProps) => {
   return (
-    <div className={`bg-gradient-to-br ${gradient} rounded-2xl p-6 text-black shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105`}>
+    <div className="bg-[#F6FAFD] rounded-2xl p-6 text-brand-dark shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-4xl">{icon}</span>
+        <span className="text-4xl text-brand-mid">{icon}</span>
         <span className="text-4xl md:text-5xl font-black">{value}</span>
       </div>
-      <p className="text-lg font-semibold">{title}</p>
+      <p className="text-lg font-semibold text-brand-mid">{title}</p>
     </div>
   );
 };
